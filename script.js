@@ -1,6 +1,6 @@
 form = document.getElementById("form");
 emailInput = document.getElementById("email");
-emailErrorMessage = document.getElementById("email-error-message");
+emailErrorMessage = document.querySelector(".email-error-message");
 newsLetterContainer = document.querySelector(".news-letter-container");
 successContainer = document.querySelector(".success-container");
 dismissBtn = document.getElementById("dismiss-btn");
@@ -37,12 +37,12 @@ function validateEmail() {
 function error() {
   emailInput.style.backgroundColor = "#ffe7e6";
   emailInput.style.border = "1.5px solid #f32720";
-  emailErrorMessage.classList.add(".email-error-message-active ");
+  emailErrorMessage.classList.add("email-error-message-active");
 }
 
 function resetErrorStyles() {
   emailInput.value = "";
   emailInput.style.backgroundColor = "";
   emailInput.style.border = "";
-  emailErrorMessage.style.display = "none";
+  emailErrorMessage.classList.remove("email-error-message-active");
 }
