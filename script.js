@@ -4,6 +4,7 @@ emailErrorMessage = document.getElementById("email-error-message");
 newsLetterContainer = document.querySelector(".news-letter-container");
 successContainer = document.querySelector(".success-container");
 dismissBtn = document.getElementById("dismiss-btn");
+emailNameUpdate = document.querySelector(".email-name-update");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -11,15 +12,14 @@ form.addEventListener("submit", (e) => {
   if (validateEmail()) {
     newsLetterContainer.style.display = "none";
     successContainer.classList.remove("hidden");
-  } else {
-    return;
+    emailNameUpdate.innerText = emailInput.value;
   }
 });
 
 dismissBtn.addEventListener("click", () => {
-  emailInput.value = "";
-  successContainer.style.display = "none";
+  successContainer.classList.add("hidden");
   newsLetterContainer.style.display = "flex";
+  resetErrorStyles();
 });
 
 function validateEmail() {
@@ -37,5 +37,12 @@ function validateEmail() {
 function error() {
   emailInput.style.backgroundColor = "#ffe7e6";
   emailInput.style.border = "1.5px solid #f32720";
-  emailErrorMessage.style.display = "block";
+  emailErrorMessage.classList.add(".email-error-message-active ");
+}
+
+function resetErrorStyles() {
+  emailInput.value = "";
+  emailInput.style.backgroundColor = "";
+  emailInput.style.border = "";
+  emailErrorMessage.style.display = "none";
 }

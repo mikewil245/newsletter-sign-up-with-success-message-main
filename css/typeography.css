@@ -67,7 +67,7 @@ label {
   }
 }
 
-#email-error-message {
+.email-error-message {
   /* Body Small */
   color: rgb(255, 97, 85);
   font-family: "Roboto-bold";

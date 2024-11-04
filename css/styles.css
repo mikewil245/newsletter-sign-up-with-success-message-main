@@ -97,10 +97,18 @@ button:hover,
   height: 80vh;
 }
 
-#email-error-message {
+.email-error-message {
   display: none;
   position: absolute;
   right: 2%;
+}
+
+.email-error-message-active {
+  display: block;
+}
+
+.email-name-update {
+  color: red;
 }
 
 .hidden {
